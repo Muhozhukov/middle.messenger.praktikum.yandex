@@ -1,0 +1,15 @@
+.input {
+  position: relative;
+  &__placeholder {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #aaa;
+    transition: top 0.3s, font-size 0.3s;
+  }
+}
+.input-data {
+  padding: 10px;
+  font-size: 16px;
+}
