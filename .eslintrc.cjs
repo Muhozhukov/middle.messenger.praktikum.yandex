@@ -25,5 +25,6 @@ module.exports = {
     'linebreak-style': 0,
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'no-underscore-dangle': [2, { allow: ['__filename', '__dirname'] }],
+    'import/prefer-default-export': 'off',
   },
 };

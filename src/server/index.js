@@ -1,37 +1,34 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import path, { dirname } from 'path';
+import path, { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-let loginPageUrl = '';
-let indexPageUrl = '';
-let staticUrl = '';
-console.log(process.env.NODE_ENV);
-if (process.env.NODE_ENV === 'production') {
-  loginPageUrl = '../../dist/pages/login/login.html';
-  indexPageUrl = '../../dist/index.html';
-  staticUrl = '../dist';
-} else {
-  loginPageUrl = '../client/pages/login/login.html';
-  indexPageUrl = '../client/index.html';
-  staticUrl = '../client';
-}
+const distPath = resolve(__dirname, '../../dist');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-app.use(express.static(path.join(__dirname, staticUrl)));
+app.use(express.static(resolve(distPath)));
 
 app.get('/', (req, res) => {
-  console.log(path.join(__dirname, indexPageUrl));
-  res.sendFile(path.join(__dirname, indexPageUrl));
+  res.sendFile(path.join(distPath, 'index.html'));
 });
-
 app.get('/login', (req, res) => {
-  console.log(path.join(__dirname, loginPageUrl));
-  res.sendFile(path.join(__dirname, loginPageUrl));
+  res.sendFile(path.join(distPath, '/pages/login/login.html'));
+});
+app.get('/signup', (req, res) => {
+  res.sendFile(path.join(distPath, '/pages/signup/signup.html'));
+});
+app.get('/chat', (req, res) => {
+  res.sendFile(path.join(distPath, '/pages/chat/chat.html'));
+});
+app.get('/error', (req, res) => {
+  res.sendFile(path.join(distPath, '/pages/errorPage/errorPage.html'));
+});
+app.get('/profile', (req, res) => {
+  res.sendFile(path.join(distPath, '/pages/profile/profile.html'));
 });
 
 app.listen(PORT, () => {

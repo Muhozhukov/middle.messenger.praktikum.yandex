@@ -1,0 +1,9 @@
+.profile__button-container {
+  padding: 10px 0;
+  border-bottom: 1px solid #eaeaea;
+  width: 100%;
+
+  &:last-child {
+    border: none;
+  }
+}

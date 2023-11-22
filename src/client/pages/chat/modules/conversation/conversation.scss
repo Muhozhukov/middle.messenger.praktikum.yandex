@@ -1,0 +1,23 @@
+@import url(./components/message/message.scss);
+@import url(./components/conversationHeader/conversationHeader.scss);
+@import url(./components/conversationFooter/conversationFooter.scss);
+@import url(./components/settingsModal/settingsModal.scss);
+
+.conversation {
+  width: 70%;
+  position: relative;
+  transform: rotate(0deg); // для отработки position: fixed у header'a
+  padding-top: 55px;
+  padding-bottom: 75px;
+
+  &__messages-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: scroll;
+    height: 100%;
+    width: 100%;
+    padding: 0 20px;
+    overflow-x: hidden;
+  }
+}

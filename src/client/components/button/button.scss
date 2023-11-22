@@ -1,0 +1,42 @@
+.button {
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 11px;
+  border: none;
+  transition: .3s;
+  &:hover {
+    cursor: pointer;
+    opacity: .7;
+  }
+  &_primary {
+    background-color: #3369f3;
+    border-radius: 8px;
+    width: 280px;
+    height: 37px;
+    color: #FFF;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 13px;
+    font-weight: 500;
+  }
+
+  &_text {
+    color: #3369f3;
+    font-size: 11px;
+    line-height: 11px;
+    font-weight: 500;
+    background-color: inherit;
+    border: none;
+  }
+
+  &_profile {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 13px;
+  }
+  &_danger {
+   color: #f00;
+  }
+}
+

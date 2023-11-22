@@ -1,0 +1,10 @@
+@import url(./components/components.scss);
+
+.chat-list {
+  width: 30%;
+  background-color: #fbfbfb;
+  padding: 20px 0 10px;
+  border-right: 1px solid #eaeaea;
+  overflow: scroll;
+  overflow-x: hidden;
+}
