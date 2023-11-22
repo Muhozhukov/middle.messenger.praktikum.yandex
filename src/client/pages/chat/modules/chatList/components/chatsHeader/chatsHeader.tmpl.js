@@ -6,7 +6,7 @@ Handlebars.registerPartial('buttonPartial', button);
 
 const chatsHeader = `
   <div class="chats-header">
-    <a class="chats-header__button" href="/profile">
+    <a class="chats-header__button" href="./pages/profile/profile.html">
       {{>buttonPartial buttonText="Профиль >" buttonClass="button_text"}}
     </a>
     <div class="chats-header__search-container">
