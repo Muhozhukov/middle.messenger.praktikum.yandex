@@ -14,12 +14,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fbfbfb;
-    border-right: 1px solid #eaeaea;
+    background-color: $color-chatlist-background;
+    border-right: 1px solid $color-border;
     transition: .3s;
 
     &:hover {
-      background-color: #e3e2e2;
+      background-color: $color-hover-background;
     }
   }
 

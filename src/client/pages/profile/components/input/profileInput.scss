@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #eaeaea;
+    border-bottom: 1px solid $color-border;
     padding: 10px 0;
     &:last-child {
       border: none;
@@ -23,14 +23,14 @@
     font-size: 13px;
     line-height: 13px;
     font-weight: 500;
-    color: #999;
+    color: $color-font-secondary;
     text-align: end;
     &:focus {
       outline: none;
     }
 
     &_active {
-      color: #1e1e1e;
+      color: $color-font-main;
     }
   }
 

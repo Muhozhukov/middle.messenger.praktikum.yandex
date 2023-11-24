@@ -5,6 +5,13 @@ import handlebars from 'vite-plugin-handlebars';
 export default defineConfig({
   root: resolve(__dirname, 'src/client'),
   base: '',
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@use "./src/client/global.scss" as *;',
+      },
+    },
+  },
   build: {
     outDir: resolve(__dirname, 'dist'),
     rollupOptions: {

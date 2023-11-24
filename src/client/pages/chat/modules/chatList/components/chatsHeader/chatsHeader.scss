@@ -9,13 +9,13 @@
 
   &__button {
     align-self: flex-end;
-    color: #999;
+    color: $color-font-secondary;
     font-size: 12px;
     font-weight: 500;
     line-height: 12px;
   }
   &__button + button {
-    color: #999
+    color: $color-font-secondary
   }
 
   &__search-container {
@@ -31,7 +31,7 @@
   }
 
   &__search-input {
-    background-color: #efefef;
+    background-color: $color-chat-inputs-background;
     border-radius: 5px;
     border: none;
     width: 100%;

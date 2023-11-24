@@ -7,7 +7,7 @@
   align-items: center;
   bottom: 0;
   left: 2.5%;
-  border-top: 1px solid #eaeaea;
+  border-top: 1px solid $color-border;
 
   &__attach-button {
     background-color: inherit;
@@ -20,7 +20,7 @@
   }
 
   &__input {
-    background-color: #efefef;
+    background-color: $color-message-mine;
     height: 32px;
     max-height: 60px;
     border-radius: 30px;
