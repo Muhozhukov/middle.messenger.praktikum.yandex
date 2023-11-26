@@ -1,0 +1,70 @@
+@import url(../../index.scss);
+@import url(./components/input/profileInput.scss);
+@import url(./components/button/profileButton.scss);
+
+.profile {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+
+  &__button-back {
+    height: 100vh;
+    width: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-chatlist-background;
+    border-right: 1px solid $color-border;
+    transition: .3s;
+
+    &:hover {
+      background-color: $color-hover-background;
+    }
+  }
+
+  &__button-back-image {
+    transform: rotate(180deg);
+  }
+
+  &__form-container {
+    width: calc(100% - 64px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+  }
+
+  &__avatar {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+  }
+
+  &__name {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 16px;
+    margin-top: 20px;
+  }
+
+  &__inputs-container {
+    width: 100%;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__buttons-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+  }
+}

@@ -1,0 +1,44 @@
+.settings-modal {
+  // display: flex;
+  display: none;
+  flex-direction: column;
+  width: 210px;
+  border-radius: 12px;
+  box-shadow: $box-shadow;
+  position: absolute;
+  right: 10px;
+  top: 65px;
+  z-index: 10;
+  background-color: $color-white;
+  padding: 5px;
+  list-style: none;
+
+  &__element {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: .3s;
+    &:first-child {
+      padding: 10px 10px 5px;
+    }
+    &:last-child {
+      padding: 5px 10px 10px;
+    }
+    &:hover {
+      background-color: $color-hover-background;
+    }
+  }
+
+  &__element-image {
+    &_rotate {
+      transform: rotate(45deg);
+    }
+  }
+
+  &__element-text {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+  }
+}
