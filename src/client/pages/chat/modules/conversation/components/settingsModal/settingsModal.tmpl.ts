@@ -1,6 +1,6 @@
 import addIcon from '../../../../../../../../static/addIcon.svg';
 
-const settingsModal = `
+const settingsModal: string = `
   <ul class="settings-modal">
     <li class="settings-modal__element">
       <img class="settings-modal__element-image" src="${addIcon}" alt="Добавить">

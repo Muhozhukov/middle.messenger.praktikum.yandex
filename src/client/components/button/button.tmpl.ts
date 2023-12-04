@@ -1,4 +1,4 @@
-const button = `
+const button: string = `
   <button class="button {{buttonClass}}">
     {{buttonText}}
   </button>

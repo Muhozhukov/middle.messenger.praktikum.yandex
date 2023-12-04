@@ -1,6 +1,6 @@
 import circleIcon from '../../../../../../../../static/circleIcon.svg';
 
-const chatItem = `
+const chatItem: string = `
   <div class="chat-item">
     <div class="chat-item__chat-info-container">
       <img class="chat-item__avatar" src=${circleIcon} alt="Аватар">

@@ -3,8 +3,8 @@ import Handlebars from 'handlebars';
 import input from '../../components/input/input.tmpl';
 import button from '../../components/button/button.tmpl';
 
-const inputPartial = Handlebars.registerPartial('inputPartial', input);
-const buttonPartial = Handlebars.registerPartial('buttonPartial', button);
+Handlebars.registerPartial('inputPartial', input);
+Handlebars.registerPartial('buttonPartial', button);
 
 const layout = `
 <main class="login-page">
@@ -20,4 +20,5 @@ const layout = `
     </div>
   </form>
 </main>`;
+
 export { layout };

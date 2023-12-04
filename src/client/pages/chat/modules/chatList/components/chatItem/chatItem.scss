@@ -9,6 +9,7 @@
     cursor: pointer;
     background-color: $color-message-mine;
   }
+
   &__chat-info-container {
     display: flex;
     gap: 10px;
@@ -19,16 +20,19 @@
     height: 47px;
     border-radius: 50%;
   }
+
   &__messages-container {
     display: flex;
     flex-direction: column;
     gap: 4px;
   }
+
   &__chat-title {
     font-size: 13px;
     line-height: 13px;
     font-weight: 600;
   }
+
   &__chat-last-message {
     color: $color-font-secondary;
     font-size: 12px;
@@ -41,6 +45,7 @@
     -webkit-box-orient: vertical;
     max-width: 100%;
   }
+
   &__chat-date-container {
     display: flex;
     flex-direction: column;

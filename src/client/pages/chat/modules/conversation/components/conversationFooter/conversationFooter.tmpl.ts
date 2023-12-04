@@ -1,7 +1,7 @@
 import attachIcon from '../../../../../../../../static/attachIcon.svg';
 import sendMessageIcon from '../../../../../../../../static/sendMessageIcon.svg';
 
-const footer = `
+const footer: string = `
   <div class="conversation-footer">
     <button class="conversation-footer__attach-button">
       <img src="${attachIcon}" alt="Прикрепить файл">

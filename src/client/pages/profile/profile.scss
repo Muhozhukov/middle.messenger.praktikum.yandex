@@ -1,6 +1,6 @@
-@import url(../../index.scss);
-@import url(./components/input/profileInput.scss);
-@import url(./components/button/profileButton.scss);
+@import "../../index";
+@import "./components/input/profileInput";
+@import "./components/button/profileButton";
 
 .profile {
   width: 100vw;

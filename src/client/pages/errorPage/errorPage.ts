@@ -3,7 +3,9 @@ import { errorPageTemplate } from './errorPage.tmpl';
 
 const template = handlebars.compile(errorPageTemplate);
 
-document.getElementById('errorPage').innerHTML = template({
+const errorPage = document.getElementById('errorPage') as HTMLElement;
+
+errorPage.innerHTML = template({
   errorCode: 404,
   description: 'Не туда попали',
 });

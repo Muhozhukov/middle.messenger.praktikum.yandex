@@ -19,12 +19,15 @@
     gap: 15px;
     cursor: pointer;
     transition: .3s;
+
     &:first-child {
       padding: 10px 10px 5px;
     }
+
     &:last-child {
       padding: 5px 10px 10px;
     }
+
     &:hover {
       background-color: $color-hover-background;
     }

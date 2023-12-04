@@ -4,12 +4,7 @@ import chatsItem from './components/chatItem/chatItem.tmpl';
 
 Handlebars.registerPartial('chatItem', chatsItem);
 
-// chatName
-// chatLastMessage
-// lastMessageDate
-// unreadedMessages
-
-const chatList = `
+const chatList: string = `
   <div class="chat-list">
     ${chatsHeader}
     {{#each fakeData}}

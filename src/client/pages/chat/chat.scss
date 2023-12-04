@@ -1,6 +1,6 @@
-@import url(./modules/chatList/chatList.scss);
-@import url(./modules/conversation/conversation.scss);
-@import url(../../index.scss);
+@import "./modules/chatList/chatList";
+@import "./modules/conversation/conversation";
+@import "../../index";
 
 .chat-page {
   display: flex;

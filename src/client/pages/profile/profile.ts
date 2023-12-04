@@ -2,6 +2,7 @@ import handlebars from 'handlebars';
 import profile from './profile.tmpl';
 
 const template = handlebars.compile(profile);
+
 const buttons = [
   {
     buttonText: 'Изменить данные',
@@ -16,7 +17,10 @@ const buttons = [
     buttonClass: 'button_text button_profile button_danger',
   },
 ];
-document.getElementById('profile').innerHTML = template({
+
+const profilePage = document.getElementById('profile') as HTMLElement;
+
+profilePage.innerHTML = template({
   buttons,
   profileName: 'Имя для профиля',
 });

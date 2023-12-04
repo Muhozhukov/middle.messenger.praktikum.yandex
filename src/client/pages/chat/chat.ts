@@ -5,7 +5,9 @@ import { fakeMessages } from './fakeMessages';
 
 const template = handlebars.compile(chatPageTemplate);
 
-document.getElementById('chat').innerHTML = template({
+const chatPage = document.getElementById('chat') as HTMLElement;
+
+chatPage.innerHTML = template({
   fakeData: data,
   fakeMessages,
 });

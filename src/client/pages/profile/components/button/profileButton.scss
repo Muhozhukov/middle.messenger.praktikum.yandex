@@ -1,9 +1,11 @@
-.profile__button-container {
-  padding: 10px 0;
-  border-bottom: 1px solid $color-border;
-  width: 100%;
+.profile {
+  &__button-container {
+    padding: 10px 0;
+    border-bottom: 1px solid $color-border;
+    width: 100%;
 
-  &:last-child {
-    border: none;
-  }
+    &:last-child {
+      border: none;
+    }
+}
 }

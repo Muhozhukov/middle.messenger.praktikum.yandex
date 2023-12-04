@@ -1,8 +1,7 @@
 .chats-header {
   display: flex;
   flex-direction: column;
-  padding-bottom: 15px;
-  padding: 0 10px 15px 10px;
+  padding: 0 10px 15px;
   gap: 25px;
   justify-content: space-between;
   align-items: center;
@@ -14,6 +13,7 @@
     font-weight: 500;
     line-height: 12px;
   }
+
   &__button + button {
     color: $color-font-secondary
   }
@@ -41,6 +41,7 @@
       transition: .3s;
       text-align: center;
     }
+
     &:focus {
       outline: none;
       padding-left: 35px;
@@ -49,6 +50,7 @@
         text-align: left;
       }
     }
+
     &:focus + .chats-header__search-icon {
       left: 5%;
     }

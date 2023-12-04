@@ -1,6 +1,7 @@
 .input {
   position: relative;
   width: 280px;
+
   &__placeholder {
     font-weight: 500;
     font-size: 13px;
@@ -11,6 +12,7 @@
     transform: translateY(-50%);
     color: $color-placeholder;
     transition: .3s;
+
     &_active {
       top: 3px;
       font-size: 9px;
@@ -19,12 +21,14 @@
     }
   }
 }
+
 .input-data {
   width: 100%;
   padding: 10px;
   border: none;
   border-bottom: 1px solid $color-accent;
   font-size: 16px;
+
   &:focus {
     outline: none;
   }

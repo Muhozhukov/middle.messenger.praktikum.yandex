@@ -1,4 +1,4 @@
-const messageTemplate = `
+const messageTemplate: string = `
   <div class="message {{isMine}}">
     <p class="message__text">{{messageText}}</p>
     <div class="message__time-container">

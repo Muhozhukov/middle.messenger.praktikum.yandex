@@ -5,6 +5,7 @@
     align-items: center;
     border-bottom: 1px solid $color-border;
     padding: 10px 0;
+
     &:last-child {
       border: none;
     }
@@ -25,6 +26,7 @@
     font-weight: 500;
     color: $color-font-secondary;
     text-align: end;
+
     &:focus {
       outline: none;
     }

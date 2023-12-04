@@ -7,7 +7,7 @@ import profileButton from './components/button/profileButton.tmpl';
 Handlebars.registerPartial('input', profileInput);
 Handlebars.registerPartial('profileButton', profileButton);
 
-const profile = `
+const profile: string = `
   <main class="profile">
     <a href="/" class="profile__button-back">
       <img class="profile__button-back-image" src="${arrowIcon}" alt="Назад">

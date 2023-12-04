@@ -3,7 +3,7 @@ import button from '../../../../components/button/button.tmpl';
 
 Handlebars.registerPartial('button', button);
 
-const profileButton = `
+const profileButton: string = `
   <div class="profile__button-container">
     {{>button}}
   </div>

@@ -6,13 +6,13 @@
 
   &_member {
     align-self: flex-start;
-    border-radius: 0 12px 12px 12px;
+    border-radius: 0 12px 12px;
   }
 
   &_mine {
     background-color: $color-message-mine;
     align-self: flex-end;
-    border-radius: 12px 12px 0 12px;
+    border-radius: 12px 12px 0;
   }
 
   &__text {

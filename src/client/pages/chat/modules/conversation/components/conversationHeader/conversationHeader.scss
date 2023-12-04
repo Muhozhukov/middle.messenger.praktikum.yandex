@@ -10,21 +10,25 @@
     width: 95%;
     border-bottom: 1px solid $color-border;
   }
+
   &__chat-name-container {
     display: flex;
     align-items: center;
     gap: 10px;
   }
+
   &__avatar {
     width: 34px;
     height: 34px;
     border-radius: 50%;
   }
+
   &__chat-name {
     font-size: 13px;
     font-weight: 600;
     line-height: 13px;
   }
+
   &__settings-button {
     background-color: inherit;
     border: none;

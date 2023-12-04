@@ -11,7 +11,7 @@ Handlebars.registerHelper('isMineMessage', (isMine) => {
   return isMine === 'true' ? 'message_mine' : 'message_member';
 })
 
-const conversation = `
+const conversation: string = `
   <div class="conversation">
     {{>headerPartial avatar="${circleIcon}" chatName="Название чата"}}
     <div class="conversation__messages-container">
