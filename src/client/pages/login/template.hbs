@@ -1,0 +1,10 @@
+<main class="login-page">
+  <form class="authorize-form">
+    <h1 class="login-page__title">Вход</h1>
+    <div class="login-page__buttons-container">
+    {{#each buttons}}
+      {{{Button text=this.text class=this.class onClick=this.onClick}}}
+    {{/each}}
+    </div>
+  </form>
+</main>

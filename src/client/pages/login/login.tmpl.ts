@@ -1,7 +1,7 @@
 // import inputPartial from '../../components/input/input';
 import Handlebars from 'handlebars';
 import input from '../../components/input/input.tmpl';
-import button from '../../components/button/button.tmpl';
+import button from '../../components/button/button.tmpl.hbs';
 
 Handlebars.registerPartial('inputPartial', input);
 Handlebars.registerPartial('buttonPartial', button);
@@ -15,8 +15,10 @@ const layout = `
       {{> inputPartial name="password" label="Пароль" type="password"}}
     </div>
     <div class="login-page__buttons-container">
-      {{> buttonPartial buttonText="Авторизоваться" buttonClass="button_primary"}}
-      {{> buttonPartial buttonText="Нет аккаунта?" buttonClass="button_text"}}
+    {{{enterButton}}}
+    {{#each buttons}}
+      {{{Button text=this.text class=this.class onClick=this.onClick}}}
+    {{/each}}
     </div>
   </form>
 </main>`;

@@ -6,7 +6,7 @@ const footer: string = `
     <button class="conversation-footer__attach-button">
       <img src="${attachIcon}" alt="Прикрепить файл">
     </button>
-    <textarea class="conversation-footer__input" type="textarea" placeholder="Сообщение"></textarea>
+    <textarea class="conversation-footer__input" name="message" type="textarea" placeholder="Сообщение"></textarea>
     <button class="conversation-footer__send-message-button">
       <img class="conversation-footer__send-message-icon" src="${sendMessageIcon}" alt="Отправить сообщение">
     </button>
