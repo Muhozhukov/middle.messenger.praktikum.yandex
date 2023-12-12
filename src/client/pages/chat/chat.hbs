@@ -25,9 +25,12 @@
       <img class="conversation__avatar" src={{avatar}} alt="аватар">
       <p class="conversation__chat-name">{{chatName}}</p>
     </div>
-    <button class="conversation__settings-button">
+    {{#Button class="conversation__settings-button" onClick=onSettingsClick}}
       <img src={{settingsIcon}} alt="настройки">
-    </button>
+    {{/Button}}
+    {{!-- <button class="conversation__settings-button">
+      <img src={{settingsIcon}} alt="настройки">
+    </button> --}}
   </div>
     <div class="conversation__messages-container">
       {{#each messages}}

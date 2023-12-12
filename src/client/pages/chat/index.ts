@@ -32,6 +32,7 @@ export class ChatPage extends Block {
       chatName: 'Название чата',
       toProfilePage: () => render('profile'),
       onSubmitForm: (e: Event) => handleFormSubmit(e),
+      onSettingsClick: () => render('errorPage'),
       data: [...data],
       messages: fakeMessages
     });

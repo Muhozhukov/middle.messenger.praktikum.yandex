@@ -1,6 +1,10 @@
 import { EventBus } from './EventBus';
 import { nanoid } from 'nanoid';
 
+interface Props {
+  [key: string]: any,
+}
+
 // Нельзя создавать экземпляр данного класса
 class Block {
   static EVENTS = {
@@ -11,7 +15,7 @@ class Block {
   };
 
   public id = nanoid(6);
-  protected props: any;
+  protected props: Props;
   protected refs: Record<string, Block> = {};
   public children: Record<string, Block>;
   private eventBus: () => EventBus;
@@ -23,7 +27,7 @@ class Block {
    *
    * @returns {void}
    */
-  constructor(propsWithChildren: any = {}) {
+  constructor(propsWithChildren: Props = {}) {
     const eventBus = new EventBus();
 
     const { props, children } = this._getChildrenAndProps(propsWithChildren);
@@ -38,8 +42,8 @@ class Block {
     eventBus.emit(Block.EVENTS.INIT);
   }
 
-  _getChildrenAndProps(childrenAndProps: any) {
-    const props: Record<string, any> = {};
+  _getChildrenAndProps(childrenAndProps: Props) {
+    const props: Record<string, Props> = {};
     const children: Record<string, Block> = {};
 
     Object.entries(childrenAndProps).forEach(([key, value]) => {
@@ -100,7 +104,7 @@ class Block {
     return true;
   }
 
-  public setProps = (nextProps: any) => {
+  public setProps = (nextProps: Props) => {
     if (!nextProps) {
       return;
     }
@@ -126,7 +130,7 @@ class Block {
     this._addEvents();
   }
 
-  protected compile(template: (context: any) => string, context: any) {
+  protected compile(template: (context: Props) => string, context: any) {
     const contextAndStubs = { ...context, __refs: this.refs };
 
     const html = template(contextAndStubs);
@@ -135,7 +139,7 @@ class Block {
 
     temp.innerHTML = html;
 
-    contextAndStubs.__children?.forEach(({ embed }: any) => {
+    contextAndStubs.__children?.forEach(({ embed }: Props) => {
       embed(temp.content);
     });
 
@@ -150,7 +154,7 @@ class Block {
     return this.element;
   }
 
-  _makePropsProxy(props: any) {
+  _makePropsProxy(props: Props) {
     return new Proxy(props, {
       get(target, prop: string) {
         const value = target[prop];
