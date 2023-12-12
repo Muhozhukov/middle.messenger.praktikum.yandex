@@ -9,10 +9,14 @@
     "dev": "vite",
     "dev:server": "npm run build && nodemon ./src/server/index.js",
     "prebuild": "tsc --noEmit",
+    "checkStyles": "npx stylelint **/*.scss",
+    "checkTs": "eslint **/*.ts",
+    "checkProject": "npm run checkStyles && npm run checkTs",
     "build": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/node": "^20.10.4",
     "@typescript-eslint/eslint-plugin": "^6.13.2",
     "@typescript-eslint/parser": "^6.13.2",
     "eslint": "^8.55.0",

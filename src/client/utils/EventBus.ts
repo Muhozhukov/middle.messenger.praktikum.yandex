@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-type EventCallback = (...args: any[]) => void
+type EventCallback = (...args: unknown[]) => void
 
 class EventBus {
   private listeners: Record<string, EventCallback[]> = {}
@@ -21,7 +20,7 @@ class EventBus {
     )
   }
 
-  emit (event: string, ...args: any[]): void {
+  emit (event: string, ...args: unknown[]): void {
     if (this.listeners[event] === undefined) {
       throw new Error(`Нет события: ${event}`)
     }

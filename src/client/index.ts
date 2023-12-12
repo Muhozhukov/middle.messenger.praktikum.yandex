@@ -1,14 +1,20 @@
 import { render } from './utils/render';
-import Button from './components/button/Button';
+import Button from './components/button';
 import { registerComponent } from './utils/registerComponent';
-// import { BackButton } from './components/BackButton';
-// import { Input } from './components/Input';
-// import { Label } from './components/Label';
+import Input from './components/input';
+import ChatListItem from './components/chatListItem';
+import Message from './components/message';
+import Form from './components/form';
+import Label from './components/label';
+import InputError from './components/inputError';
 
 registerComponent('Button', Button);
-// registerComponent('BackButton', BackButton);
-// registerComponent('Input', Input);
-// registerComponent('Label', Label);
+registerComponent('Message', Message);
+registerComponent('Input', Input);
+registerComponent('Form', Form);
+registerComponent('Label', Label);
+registerComponent('InputError', InputError);
+registerComponent('ChatListItem', ChatListItem);
 
 window.addEventListener('DOMContentLoaded', () => {
   render('login')

@@ -2,22 +2,15 @@
   position: relative;
   width: 280px;
 
-  &__placeholder {
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 13px;
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    color: $color-placeholder;
-    transition: .3s;
+  &_profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $color-border;
+    padding: 10px 0;
 
-    &_active {
-      top: 3px;
-      font-size: 9px;
-      font-weight: 500;
-      line-height: 9px;
+    &:last-child {
+      border: none;
     }
   }
 }
@@ -28,6 +21,28 @@
   border: none;
   border-bottom: 1px solid $color-accent;
   font-size: 16px;
+
+  // styles for Profile page inputs
+  &_profile {
+    border-bottom: none;
+    width: 70%;
+    padding: 0;
+    background-color: inherit;
+    border: none;
+    font-size: 13px;
+    line-height: 13px;
+    font-weight: 500;
+    color: $color-font-secondary;
+    text-align: end;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:last-child {
+      border: none;
+    }
+  }
 
   &:focus {
     outline: none;

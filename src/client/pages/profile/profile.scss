@@ -1,7 +1,3 @@
-@import "../../index";
-@import "./components/input/profileInput";
-@import "./components/button/profileButton";
-
 .profile {
   width: 100vw;
   height: 100vh;
@@ -62,6 +58,7 @@
   }
 
   &__buttons-container {
+    gap: 20px;
     width: 100%;
     display: flex;
     flex-direction: column;

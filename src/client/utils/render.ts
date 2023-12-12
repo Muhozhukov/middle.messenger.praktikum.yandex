@@ -1,23 +1,15 @@
-// import { HomePage } from '../pages/Home';
-// import { SettingsPage } from '../pages/Settings';
-// import { PasswordPage } from '../pages/Password';
-// import { NotFoundPage } from '../pages/404';
-// import { ServerErrorPage } from '../pages/500';
-// import { RegisterPage } from '../pages/Register';
 import { LoginPage } from '../pages/login';
-// import { ChatsPage } from '../pages/Chats';
-// import { ProfilePage } from '../pages/Profile';
+import { ChatPage } from '../pages/chat';
+import { SignupPage } from '../pages/signup';
+import { ProfilePage } from '../pages/profile';
+import { ErrorPage } from '../pages/errorPage';
 
 const ROUTES = {
-  // 'home': HomePage,
-  // 'profile': ProfilePage,
-  // 'settings': SettingsPage,
-  // 'password': PasswordPage,
-  // 'notFound': NotFoundPage,
-  // 'errorPage': ServerErrorPage,
-  // 'register': RegisterPage,
+  'chat': ChatPage,
+  'profile': ProfilePage,
+  'errorPage': ErrorPage,
   'login': LoginPage,
-  // 'chats': ChatsPage
+  'signup': SignupPage,
 }
 
 export function render(name: keyof typeof ROUTES) {

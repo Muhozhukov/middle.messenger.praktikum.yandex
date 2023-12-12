@@ -1,0 +1,27 @@
+<main class="profile">
+  {{#Button onClick=backwardClick}}
+    <div class="profile__button-back">
+      <img class="profile__button-back-image" src="{{buttonIcon}}" alt="Назад">
+    </div>
+  {{/Button}}
+  <div class="profile__form-container">
+    {{#Form border=(formWithoutBorder withoutBorder) onSubmit=onSubmitForm}}
+      <img class="profile__avatar" src="{{avatar}}" alt="Аватар">
+      <h3 class="profile__name">{{profileName}}</h3>
+      <div class="profile__inputs-container">
+        {{#each inputs}}
+          <div class="input_profile">
+            {{{Label label=this.label name=this.name style='_profile'}}}
+            {{{Input name=this.name type=this.type value=this.value style='_profile'}}}
+          </div>
+          {{{InputError text=this.errorText id=this.errorId style='_profile'}}}
+        {{/each}}
+      </div>
+      <div class="profile__buttons-container">
+        {{#each buttons}}
+          {{{Button type=this.type text=this.text class=this.class onClick=this.onClick}}}
+        {{/each}}
+      </div>
+    {{/Form}}
+  </div>
+</main>

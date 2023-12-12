@@ -1,6 +1,5 @@
-@import "./modules/chatList/chatList";
-@import "./modules/conversation/conversation";
-@import "../../index";
+@import "./styles/conversation";
+@import "./styles/chatList";
 
 .chat-page {
   display: flex;

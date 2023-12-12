@@ -1,26 +1,15 @@
-function handleFocusInput (input: HTMLElement): void {
-  const placeholder = input.querySelector('.input__placeholder') as HTMLElement
+const getParentNode = (input: HTMLInputElement) => {
+  return input.parentNode as HTMLElement;
+}
+
+export function handleFocusInput (input: HTMLInputElement): void {
+  const placeholder = getParentNode(input).querySelector('.input__placeholder') as HTMLElement
   placeholder.classList.add('input__placeholder_active')
-  placeholder.style.top = '3px'
 }
 
-function handleFocusoutInput (input: HTMLElement): void {
-  const placeholder = input.querySelector('.input__placeholder') as HTMLElement
-  placeholder.classList.remove('input__placeholder_active')
-  placeholder.style.top = '50%'
+export function handleFocusoutInput (input: HTMLInputElement): void {
+  if (input.value.length === 0) {
+    const placeholder = getParentNode(input).querySelector('.input__placeholder') as HTMLElement
+    placeholder.classList.remove('input__placeholder_active')
+  }
 }
-
-const handleFocusInputs = (inputs: NodeListOf<HTMLElement>): void => {
-  inputs.forEach((input) => {
-    const inputData = input.querySelector('.input-data') as HTMLInputElement
-    inputData.addEventListener('focus', () => {
-      handleFocusInput(input)
-    })
-    inputData.addEventListener('focusout', () => {
-      if (inputData.value.length > 0) return
-      handleFocusoutInput(input)
-    })
-  })
-}
-
-export { handleFocusInputs }

@@ -1,0 +1,53 @@
+<div class="chat-page">
+  <section class="chat-list">
+    <div class="chats-header">
+      <div class="chats-header__button">
+        {{{Button text="Профиль >" class="button_text" onClick=toProfilePage}}}
+      </div>
+      <div class="chats-header__search-container">
+        <input class="chats-header__search-input" type="text" placeholder="Поиск">
+        <img class="chats-header__search-icon" src='{{searchIcon}}' alt="Поиск">
+      </div>
+    </div>
+    {{#each data}}
+    {{{ChatListItem
+      icon=this.icon
+      chatName=this.chatName
+      chatLastMessage=this.chatLastMessage
+      lastMessageDate=this.lastMessageDate
+      unreadedMessages=this.unreadedMessages
+    }}}
+    {{/each}}
+  </section>
+  <div class="conversation">
+    <div class="conversation__header">
+    <div class="conversation__chat-name-container">
+      <img class="conversation__avatar" src={{avatar}} alt="аватар">
+      <p class="conversation__chat-name">{{chatName}}</p>
+    </div>
+    <button class="conversation__settings-button">
+      <img src={{settingsIcon}} alt="настройки">
+    </button>
+  </div>
+    <div class="conversation__messages-container">
+      {{#each messages}}
+      {{{Message
+        text=this.text
+        time=this.time
+        isMine=(isMineMessage this.isMine)
+      }}}
+      {{/each}}
+    </div>
+    <div class="conversation-footer">
+    <button class="conversation-footer__attach-button">
+      <img src="{{attachIcon}}" alt="Прикрепить файл">
+    </button>
+    {{#Form border="form_message" onSubmit=onSubmitForm}}
+    <textarea class="conversation-footer__input" name="message" type="textarea" placeholder="Сообщение"></textarea>
+    <button type="submit" class="conversation-footer__send-message-button">
+      <img class="conversation-footer__send-message-icon" src="{{sendMessageIcon}}" alt="Отправить сообщение">
+    </button>
+    {{/Form}}
+  </div>
+  </div>
+</div>

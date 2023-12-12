@@ -1,0 +1,19 @@
+<main class="signup-page">
+  {{#Form onSubmit=onSubmitForm}}
+    <h1 class="signup-page__title">Вход</h1>
+    <div class="signup-page__inputs-container">
+      {{#each inputs}}
+      <div class="input">
+        {{{Input name=this.name type=this.type}}}
+        {{{Label label=this.label name=this.name}}}
+        {{{InputError text=this.errorText id=this.errorId }}}
+      </div>
+      {{/each}}
+    </div>
+    <div class="signup-page__buttons-container">
+      {{#each buttons}}
+        {{{Button text=this.text class=this.class onClick=this.onClick}}}
+      {{/each}}
+    </div>
+  {{/Form}}
+</main>

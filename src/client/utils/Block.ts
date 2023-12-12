@@ -100,7 +100,7 @@ class Block {
     return true;
   }
 
-  setProps = (nextProps: any) => {
+  public setProps = (nextProps: any) => {
     if (!nextProps) {
       return;
     }
@@ -151,33 +151,25 @@ class Block {
   }
 
   _makePropsProxy(props: any) {
-    // Ещё один способ передачи this, но он больше не применяется с приходом ES6+
-    const self = this;
-
     return new Proxy(props, {
-      get(target, prop) {
+      get(target, prop: string) {
         const value = target[prop];
         return typeof value === 'function' ? value.bind(target) : value;
       },
-      set(target, prop, value) {
+      set: (target, prop: string, value) => {
         const oldTarget = { ...target }
 
         target[prop] = value;
 
         // Запускаем обновление компоненты
         // Плохой cloneDeep, в следующей итерации нужно заставлять добавлять cloneDeep им самим
-        self.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
+        this.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
         return true;
       },
       deleteProperty() {
         throw new Error('Нет доступа');
       }
     });
-  }
-
-  _createDocumentElement(tagName: string) {
-    // Можно сделать метод, который через фрагменты в цикле создаёт сразу несколько блоков
-    return document.createElement(tagName);
   }
 
   show() {

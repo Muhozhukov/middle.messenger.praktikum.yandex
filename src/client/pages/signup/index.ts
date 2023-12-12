@@ -1,5 +1,5 @@
+import template from './signup.hbs';
 import Block from '../../utils/Block';
-import template from './template.hbs'
 import { inputs, buttons } from './components';
 import { checkFormValidation } from '../../utils/formValidation';
 import { render } from '../../utils/render';
@@ -12,13 +12,13 @@ const handleFormSubmit = (e: Event) => {
   if (formIsValid) {
     const formData = new FormData(form);
     console.log(Object.fromEntries(formData))
-    render('chat');
+    setTimeout(() => render('chat'), 1500);
   } else {
     console.log('form is invalid');
   }
 };
 
-export class LoginPage extends Block {
+export class SignupPage extends Block {
   constructor() {
     super({
       inputs,
@@ -28,6 +28,6 @@ export class LoginPage extends Block {
   }
 
   render() {
-    return this.compile(template, this.props)
+    return this.compile(template, this.props);
   }
 }

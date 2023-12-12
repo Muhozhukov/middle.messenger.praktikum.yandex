@@ -1,0 +1,27 @@
+.input {
+  &__placeholder {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 13px;
+    top: 28px;
+    position: absolute;
+    left: 10px;
+    transform: translateY(-50%);
+    color: $color-placeholder;
+    transition: .3s;
+
+    &_active {
+      top: 3px;
+      font-size: 9px;
+      font-weight: 500;
+      line-height: 9px;
+    }
+
+    &_profile {
+      position: static;
+      font-size: 13px;
+      line-height: 13px;
+      font-weight: 500;
+    }
+  }
+}
