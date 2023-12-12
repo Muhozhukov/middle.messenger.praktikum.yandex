@@ -1,6 +1,6 @@
 # Handlebars-мессенджер
 
-[Pull request](https://github.com/Muhozhukov/middle.messenger.praktikum.yandex/pull/1)
+[Pull request](https://github.com/Muhozhukov/middle.messenger.praktikum.yandex/pull/3)
 
 Проект мессенджера, построенного с помощью шаблонизаторов. Проект выполнен как одностраничное приложение.
 
