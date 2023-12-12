@@ -17,5 +17,5 @@ registerComponent('InputError', InputError);
 registerComponent('ChatListItem', ChatListItem);
 
 window.addEventListener('DOMContentLoaded', () => {
-  render('chat')
+  render('login')
 });
