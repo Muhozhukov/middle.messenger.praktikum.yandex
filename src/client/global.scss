@@ -10,14 +10,13 @@ $color-danger: #f00;
 $color-border: #eaeaea;
 $color-chatlist-background: #fbfbfb;
 $color-hover-background: #f5f5f5;
-$color-message-picture-hover: rgba(82, 82, 82, .5);
-
-$box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.14);
+$color-message-picture-hover: rgb(82 82 82 / 50%);
+$box-shadow: 0 0 6px 0 rgb(0 0 0 / 14%);
 
 * {
   padding: 0;
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: Inter, sans-serif;
   color: $color-font-main;
   box-sizing: border-box;
 }

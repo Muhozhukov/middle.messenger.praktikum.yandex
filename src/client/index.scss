@@ -1,3 +1,9 @@
 // @import url(./global.scss);
-@import url(../../static/fonts/inter.scss);
-@import url(./components/components.scss);
+@import "../../static/fonts/inter";
+@import "./components/components";
+@import "./pages/chat/chat";
+@import "./pages/errorPage/errorPage";
+@import "./pages/login/login";
+@import "./pages/profile/profile";
+@import "./pages/signup/signup";
+

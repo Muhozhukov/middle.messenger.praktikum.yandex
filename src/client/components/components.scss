@@ -1,2 +1,7 @@
-@import url(./button/button.scss);
-@import url(./input/input.scss);
+@import "./button/button";
+@import "./input/input";
+@import "./form/form";
+@import "./inputError/inputError";
+@import "./label/label";
+@import "./message/message";
+@import "./chatListItem/chatListItem";
