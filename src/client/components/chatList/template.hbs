@@ -1,0 +1,10 @@
+{{#each chats}}
+  {{{ChatListItem
+    icon=this.avatar
+    chatName=this.title
+    chatLastMessage=this.chatLastMessage
+    lastMessageDate=this.lastMessageDate
+    unreadedMessages=this.unread_count
+    onClick=this.onClick
+  }}}
+{{/each}}

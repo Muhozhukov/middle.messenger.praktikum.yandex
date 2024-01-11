@@ -37,10 +37,47 @@
     width: 40%;
   }
 
-  &__avatar {
+  &__avatar-button {
     width: 130px;
     height: 130px;
     border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+    position: relative;
+    z-index: 1;
+    background-color: inherit;
+
+    &:hover {
+      // opacity: .5;
+      // background-color: black;
+    }
+  }
+
+  &__avatar-wrapper {
+    z-index: 10;
+    background-color: black;
+
+    &:hover {
+      background-image: none;
+      background-color: black;
+    }
+  }
+
+  &__avatar-button-text {
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__avatar {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    z-index: 1;
   }
 
   &__name {

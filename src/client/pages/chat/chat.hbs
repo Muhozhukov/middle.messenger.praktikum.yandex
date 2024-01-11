@@ -3,20 +3,22 @@
     <div class="chats-header">
       <div class="chats-header__button">
         {{{Button text="Профиль >" class="button_text" onClick=toProfilePage}}}
+        {{{Button text="Создать чат" class="button_text" onClick=onCreateChatClick}}}
       </div>
       <div class="chats-header__search-container">
         <input class="chats-header__search-input" type="text" placeholder="Поиск">
         <img class="chats-header__search-icon" src='{{searchIcon}}' alt="Поиск">
       </div>
     </div>
-    {{#each data}}
-    {{{ChatListItem
-      icon=this.icon
-      chatName=this.chatName
-      chatLastMessage=this.chatLastMessage
-      lastMessageDate=this.lastMessageDate
-      unreadedMessages=this.unreadedMessages
-    }}}
+    {{#each chats}}
+      {{{ChatListItem
+        icon=this.avatar
+        chatName=this.title
+        chatLastMessage=this.chatLastMessage
+        lastMessageDate=this.lastMessageDate
+        unreadedMessages=this.unread_count
+        onClick=this.onClick
+      }}}
     {{/each}}
   </section>
   <div class="conversation">
@@ -33,13 +35,19 @@
     </button> --}}
   </div>
     <div class="conversation__messages-container">
-      {{#each messages}}
-      {{{Message
-        text=this.text
-        time=this.time
-        isMine=(isMineMessage this.isMine)
-      }}}
-      {{/each}}
+      {{#if selectedChat }}
+        {{#each messages}}
+          {{{Message
+            text=this.content
+            time=this.time
+            isMine=(isMineMessage this.isMine)
+          }}}
+        {{/each}}
+      {{else}}
+      <div style=" height: 100%; display: flex; align-items: center; justify-content: center">
+        Выбирете чат
+      </div>
+      {{/if}}
     </div>
     <div class="conversation-footer">
     <button class="conversation-footer__attach-button">
@@ -53,4 +61,15 @@
     {{/Form}}
   </div>
   </div>
+  {{#Popup visibility=popupVisibility onClick=onClosePopup}}
+    {{#Modal title="Создание чата"}}
+      {{#Form border=(formWithoutBorder true) onSubmit=onChatCreate}}
+        <div style="position: relative; margin-bottom: 20px">
+          {{{Label label="Название чата" name="title"}}}
+          {{{Input name="title" type="text" }}}
+        </div>
+        {{{Button type="submit" text="Создать" class="button_primary"}}}
+      {{/Form}}
+    {{/Modal}}
+  {{/Popup}}
 </div>

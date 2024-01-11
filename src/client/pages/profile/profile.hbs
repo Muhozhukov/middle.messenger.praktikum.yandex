@@ -6,13 +6,18 @@
   {{/Button}}
   <div class="profile__form-container">
     {{#Form border=(formWithoutBorder withoutBorder) onSubmit=onSubmitForm}}
-      <img class="profile__avatar" src="{{avatar}}" alt="Аватар">
+      {{#Button class="profile__avatar-button" type="button" onClick=onAvatarClick}}
+        {{!-- <div class="profile__avatar-wrapper"> --}}
+          <p class="profile__avatar-button-text">Изменить аватар</p>
+          <img class="profile__avatar" src="{{avatar}}" alt="Аватар">
+        {{!-- </div> --}}
+      {{/Button}}
       <h3 class="profile__name">{{profileName}}</h3>
       <div class="profile__inputs-container">
         {{#each inputs}}
           <div class="input_profile">
             {{{Label label=this.label name=this.name style='_profile'}}}
-            {{{Input name=this.name type=this.type value=this.value style='_profile'}}}
+            {{{Input name=this.name type=this.type value=this.value style=this.style disabled=this.disabled }}}
           </div>
           {{{InputError text=this.errorText id=this.errorId style='_profile'}}}
         {{/each}}
@@ -23,5 +28,17 @@
         {{/each}}
       </div>
     {{/Form}}
+    {{#Popup visibility=popupVisibility onClick=onClosePopup}}
+      {{#Modal title="Загрузите файл"}}
+      {{#Form border=(formWithoutBorder withoutBorder) onSubmit=onAvatarChange}}
+        <div>
+          {{{Label label="Выбрать файл на компьютере" name="avatar" style='_file'}}}
+          {{{Input name="avatar" type="file" style='_file'}}}
+          <p class="file">{{fileName}}</p>
+        </div>
+        {{{Button type="submit" text="Поменять" class="button_primary"}}}
+      {{/Form}}
+      {{/Modal}}
+    {{/Popup}}
   </div>
 </main>

@@ -1,24 +1,19 @@
 import Block from '../../utils/Block';
 import template from './template.hbs'
 import { inputs, buttons } from './components';
-import { checkFormValidation } from '../../utils/formValidation';
-import { render } from '../../utils/render';
+// import { checkFormValidation } from '../../utils/formValidation';
+// import Router from '../../utils/Router';
+import userAuthController from '../../controllers/userAuthController';
+import { withStore } from '../../utils/Store';
 
 const handleFormSubmit = (e: Event) => {
   e.preventDefault();
   const form = e.target as HTMLFormElement;
 
-  const formIsValid = checkFormValidation(form);
-  if (formIsValid) {
-    const formData = new FormData(form);
-    console.log(Object.fromEntries(formData))
-    render('chat');
-  } else {
-    console.log('form is invalid');
-  }
+  userAuthController.login(form);
 };
 
-export class LoginPage extends Block {
+class LoginPageBase extends Block {
   constructor() {
     super({
       inputs,
@@ -31,3 +26,6 @@ export class LoginPage extends Block {
     return this.compile(template, this.props)
   }
 }
+
+const loginWithStore = withStore(state => ({ user: state.user }))
+export const LoginPage = loginWithStore(LoginPageBase)

@@ -1,12 +1,10 @@
 interface Options {
-  headers: {
+  headers?: {
     [key: string]: string;
   },
-  data: {
-    [key: string]: string
-  },
+  data?: any,
   method: 'GET' | 'PUT' | 'POST' | 'DELETE',
-  timeout: number,
+  timeout?: number,
 }
 
 const METHODS: Record<string, 'GET' | 'PUT' | 'POST' | 'DELETE'> = {
@@ -43,29 +41,34 @@ function queryStringify(obj: StringKeyObject) {
 }
 
 class HTTPTransport {
-  get = (url: string, options: Options) => {
-		let query = url;
-		if (options.data) {
-			query += queryStringify(options.data);
+  static API_URL = 'https://ya-praktikum.tech/api/v2';
+  protected endpoint: string;
+
+  constructor(endpoint: string) {
+    this.endpoint = `${HTTPTransport.API_URL}${endpoint}`;
+  }
+
+  get<Response>(url: string, options?: Options): Promise<Response> {
+		let query = '';
+		if (options && options.data) {
+			query += `?${queryStringify(options.data)}`;
 		}
-		console.log(options.data)
-		console.log(`${url}?${query}`)
-    return this.request(`${url}?${query}`, { ...options, method: METHODS.GET }, options.timeout);
-  };
+    return this.request<Response>(this.endpoint + `${url}${query}`, { ...options, method: METHODS.GET });
+  }
 
-  put = (url: string, options: Options) => {
-    return this.request(url, { ...options, method: METHODS.PUT }, options.timeout);
-  };
+  put<Response>(path: string = '/', data: unknown): Promise<Response> {
+    return this.request<Response>(this.endpoint + path, { data, method: METHODS.PUT });
+  }
 
-  post = (url: string, options: Options) => {
-    return this.request(url, { ...options, method: METHODS.POST }, options.timeout);
-  };
+  post<Response>(path: string = '/', data: unknown): Promise<Response> {
+    return this.request<Response>(this.endpoint + path, { data, method: METHODS.POST });
+  }
 
-  delete = (url: string, options: Options) => {
-    return this.request(url, { ...options, method: METHODS.DELETE }, options.timeout);
-  };
+  delete<Response>(path: string = '/', data: unknown): Promise<Response> {
+    return this.request<Response>(this.endpoint + path, { data, method: METHODS.DELETE });
+  }
 
-  request = (url: string, options: Options, timeout = 5000) => {
+  request<Response>(url: string, options: Options, timeout = 5000): Promise<Response> {
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
       xhr.open(options.method, url);
@@ -79,10 +82,12 @@ class HTTPTransport {
       }
 
       xhr.onload = function() {
-        resolve(xhr);
+        resolve(xhr.response);
       };
 
       xhr.timeout = timeout;
+      xhr.withCredentials = true;
+      xhr.responseType = 'json';
 
       xhr.ontimeout = function () {
         reject(new Error('Request timed out'));
@@ -91,11 +96,17 @@ class HTTPTransport {
       if (options.method === METHODS.GET || options.method === METHODS.DELETE) {
         xhr.send();
       } else {
-        // xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.send(JSON.stringify(options.data));
+        console.log(options);
+        if (options.data instanceof FormData) {
+          // Если данные - FormData, отправляем их без установки Content-Type
+          xhr.send(options.data);
+        } else {
+          xhr.setRequestHeader('Content-Type', 'application/json');
+          xhr.send(JSON.stringify(options.data));
+        }
       }
     });
-  };
+  }
 }
 
 export { HTTPTransport };

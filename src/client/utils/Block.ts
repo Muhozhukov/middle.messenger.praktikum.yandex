@@ -102,13 +102,14 @@ class Block {
     Object.values(this.children).forEach(child => child.dispatchComponentDidMount());
   }
 
-  private _componentDidUpdate() {
-    if (this.componentDidUpdate()) {
+  private _componentDidUpdate(oldProps?: Props, newProps?: Props) {
+    if (this.componentDidUpdate(oldProps, newProps)) {
       this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
   }
 
-  protected componentDidUpdate() {
+  protected componentDidUpdate(oldProps?: Props, newProps?: Props) {
+    console.log(oldProps, newProps)
     return true;
   }
 
