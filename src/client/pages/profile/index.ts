@@ -1,6 +1,6 @@
 import Handlebars from 'handlebars';
 import template from './profile.hbs';
-import Block from '../../utils/Block';
+import Block, { Props } from '../../utils/Block';
 import avatar from '../../../../static/circleIcon.svg';
 import buttonIcon from '../../../../static/sendMessageIcon.svg'
 import { inputs, getDefaultButtons, getInputs } from './components';
@@ -81,7 +81,7 @@ class ProfilePageBase extends Block {
     if (userState) this.setProps({avatar: `${avatarPath}${userState.avatar}`});
   }
 
-  protected componentDidUpdate(oldProps: any, newProps: any): boolean {
+  protected componentDidUpdate(oldProps: Props, newProps: Props): boolean {
     if (isEqual(oldProps, newProps)) {
       return false
     }

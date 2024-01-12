@@ -1,7 +1,6 @@
 import userAuthController from "../../controllers/userAuthController";
 import Block from "../../utils/Block";
 import store from "../../utils/Store";
-// import usersController from "../../controllers/usersController";
 
 export const changeButton = {
   type: 'button',
@@ -35,7 +34,6 @@ export const getInputs = (inputsToEdit = false) => {
       }
 
       return i;
-
     });
   } else {
     return inputs;

@@ -67,7 +67,6 @@ class Router {
   }
 
   public start() {
-    // Реагируем на изменения в адресной строке и вызываем перерисовку
     window.onpopstate = (event: PopStateEvent) => {
       const target = event.currentTarget as Window;
 

@@ -10,7 +10,8 @@ interface PopupProps {
 }
 
 interface ModalProps {
-
+  style: string
+  visibility: string
 }
 
 export class Popup extends Block{

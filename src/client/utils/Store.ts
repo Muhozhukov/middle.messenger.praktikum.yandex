@@ -1,20 +1,26 @@
+import { User } from "../api/auth-api";
+import { ChatInfo } from "../api/chat-api";
+import Message from "../components/message";
 import Block from "./Block";
 import { EventBus } from "./EventBus";
 import { set } from "./helpers";
 import isEqual from "./isEqual";
 
-type Indexed<T = unknown> = {
-  [key in string]: T;
-};
+interface State {
+  user: User;
+  chats: ChatInfo[];
+  messages: Record<number, Message[]>;
+  selectedChat?: number;
+}
 
 export enum StoreEvents {
   Updated = 'updated',
 }
 
 class Store extends EventBus {
-  private state: Indexed = {}
+  private state: any = {}
 
-  public getState(): Indexed {
+  public getState(): State {
     return this.state
   }
 
@@ -24,7 +30,7 @@ class Store extends EventBus {
   }
 }
 
-export function withStore(mapStateToProps: (state: Indexed) => Indexed) {
+export function withStore(mapStateToProps: (state: State) => any) {
   return function(Component: typeof Block) {
     return class extends Component {
       constructor(props: any) {
@@ -44,13 +50,5 @@ export function withStore(mapStateToProps: (state: Indexed) => Indexed) {
   }
 }
 
-// function mapUserToProps(state) {
-//   return {
-//     name: state.user.name,
-//     avatar: state.user.avatar,
-//   };
-// }
-
 const store = new Store();
 export default store;
-// export default new Store();

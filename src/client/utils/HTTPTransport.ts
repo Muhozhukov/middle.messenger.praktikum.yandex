@@ -93,10 +93,9 @@ class HTTPTransport {
         reject(new Error('Request timed out'));
       };
 
-      if (options.method === METHODS.GET || options.method === METHODS.DELETE) {
+      if (options.method === METHODS.GET) {
         xhr.send();
       } else {
-        console.log(options);
         if (options.data instanceof FormData) {
           // Если данные - FormData, отправляем их без установки Content-Type
           xhr.send(options.data);

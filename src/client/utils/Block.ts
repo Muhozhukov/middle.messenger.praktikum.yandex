@@ -1,7 +1,7 @@
 import { EventBus } from './EventBus';
 import { nanoid } from 'nanoid';
 
-interface Props {
+export interface Props {
   [key: string]: any,
 }
 
@@ -87,6 +87,10 @@ class Block {
   }
 
   protected init() {
+  }
+
+  public getProps(key: string) {
+    return this.props[key];
   }
 
   _componentDidMount() {

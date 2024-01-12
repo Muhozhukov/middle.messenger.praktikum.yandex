@@ -32,3 +32,14 @@ export function set(object: Indexed | unknown, path: string, value: unknown): In
 
   return object;
 }
+
+export const formatTime = (inputTime: string) => {
+    const date = new Date(inputTime);
+
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+
+    const formattedTime = `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
+
+    return formattedTime;
+}

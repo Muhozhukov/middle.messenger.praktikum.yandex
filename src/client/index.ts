@@ -15,7 +15,6 @@ import Router from './utils/Router';
 import userAuthController from './controllers/userAuthController';
 import {Popup, Modal} from './components/popup';
 import chatController from './controllers/chatController';
-import ChatsList from './components/chatList';
 
 const Routes = {
   Login: '/',
@@ -34,7 +33,6 @@ registerComponent('InputError', InputError);
 registerComponent('ChatListItem', ChatListItem);
 registerComponent('Popup', Popup);
 registerComponent('Modal', Modal);
-registerComponent('ChatList', ChatsList);
 
 window.addEventListener('DOMContentLoaded', async () => {
   Router

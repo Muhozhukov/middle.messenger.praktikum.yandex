@@ -23,9 +23,8 @@ export interface User {
   password: string;
   phone: string;
   avatar: string;
+  [key: string]: string | number
 }
-
-// const authApiInstance = new HTTPTransport('/auth');
 
 class AuthApi extends BaseApi {
   constructor() {

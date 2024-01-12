@@ -76,7 +76,7 @@ class MessagesController {
 
     const currentMessages = (store.getState().messages || {})[id] || [];
 
-    messagesToAdd = [...currentMessages, ...messagesToAdd];
+    messagesToAdd = [...currentMessages, ...messagesToAdd] as Message[];
 
     store.set(`messages.${id}`, messagesToAdd);
   }
@@ -86,15 +86,12 @@ class MessagesController {
   }
 
   private subscribe(transport: WSTransport, id: number) {
-    transport.on(WSTransportEvents.Message, (message) => this.onMessage(id, message));
+    transport.on(WSTransportEvents.Message, (message: Message) => this.onMessage(id, message));
     transport.on(WSTransportEvents.Close, () => this.onClose(id));
   }
 }
 
 
 const messagesController = new MessagesController();
-
-// @ts-ignore
-// window.messagesController = controller;
 
 export default messagesController;

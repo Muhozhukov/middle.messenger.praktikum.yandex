@@ -26,7 +26,6 @@ export const buttons = [
     text: 'Нет аккаунта?',
     onClick: (e: MouseEvent) => {
       e.preventDefault();
-      // render('signup');
       Router.go('/signup')
     },
     class: 'button_text'

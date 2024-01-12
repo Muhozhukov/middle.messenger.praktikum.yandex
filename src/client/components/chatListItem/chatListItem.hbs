@@ -8,8 +8,10 @@
   </div>
   <div class="chat-item__chat-date-container">
     <p class="chat-item__last-message-date">{{lastMessageDate}}</p>
-    <div class="chat-item__unreaded-message-container">
-      <p class="chat-item__unreaded-message-count">{{unreadedMessages}}</p>
-    </div>
+    {{#if unread_count }}
+      <div class="chat-item__unreaded-message-container">
+        <p class="chat-item__unreaded-message-count">{{unread_count}}</p>
+      </div>
+    {{/if}}
   </div>
 </div>

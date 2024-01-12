@@ -1,4 +1,5 @@
 import { BaseApi } from "./base-api";
+import { User } from "./auth-api";
 
 export interface LoginData {
   login: string;
@@ -14,7 +15,12 @@ export interface SignupData {
   phone: string;
 }
 
-export interface User {
+export interface ChangePassword {
+  oldPassword: string,
+  newPassword: string,
+}
+
+export interface UserInfoToUpdate {
   first_name: string;
   second_name: string;
   display_name: string;
@@ -23,16 +29,11 @@ export interface User {
   phone: string;
 }
 
-export interface ChangePassword {
-  oldPassword: string,
-  newPassword: string,
-}
-
 class UsersApi extends BaseApi {
   constructor() {
     super('/user')
   }
-  update(data: User): Promise<User> {
+  update(data: UserInfoToUpdate): Promise<User> {
     return this.http.put('/profile', data)
   }
 
@@ -48,11 +49,14 @@ class UsersApi extends BaseApi {
     return this.http.get('/user')
   }
 
+  searchUsers(login: string): Promise<User[]> {
+    return this.http.post('/search', {login: login})
+  }
+
   logout() {
     return this.http.post('/logout', {});
   }
   create = undefined;
-  // update = undefined;
   delete = undefined;
   request = undefined;
 }

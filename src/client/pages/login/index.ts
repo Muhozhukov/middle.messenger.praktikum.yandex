@@ -1,8 +1,6 @@
 import Block from '../../utils/Block';
 import template from './template.hbs'
 import { inputs, buttons } from './components';
-// import { checkFormValidation } from '../../utils/formValidation';
-// import Router from '../../utils/Router';
 import userAuthController from '../../controllers/userAuthController';
 import { withStore } from '../../utils/Store';
 

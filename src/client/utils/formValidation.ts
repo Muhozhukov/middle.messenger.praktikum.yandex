@@ -3,6 +3,7 @@ type ValidationRules = {
 }
 
 const validationRules: ValidationRules = {
+  title: /^.+$/,
   first_name: /^[A-Za-zА-ЯЁа-яё][A-Za-zА-ЯЁа-яё-]*$/,
   second_name: /^[A-Za-zА-ЯЁа-яё][A-Za-zА-ЯЁа-яё-]*$/,
   display_name: /^[A-Za-zА-ЯЁа-яё][A-Za-zА-ЯЁа-яё-]*$/,
