@@ -27,6 +27,6 @@
 
 ## Остальные ссылки
 
-Для реализации был взят следующий [макет](https://www.figma.com/file/jF5fFFzgGOxQeB4CmKWTiE/Chat_external_link?node-id=0%3A1)
+Для реализации был взят следующий [макет](https://www.figma.com/file/jF5fFFzgGOxQeB4CmKWTiE/Chat_external_link?node-id=0%3A1).
 
 Проект развернут на [Netlify](https://effortless-stroopwafel-c840f2.netlify.app/)
