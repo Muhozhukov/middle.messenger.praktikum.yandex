@@ -22,7 +22,7 @@ class UserAuthController {
       await authApi.signin(data)
       await this.getUser();
 
-      Router.go('/profile');
+      Router.go('/chat');
 
     } catch (e) {
       console.error(e);
