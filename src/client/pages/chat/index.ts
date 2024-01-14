@@ -37,8 +37,9 @@ const handleSendMessage = (e: Event, block: Block) => {
   e.preventDefault();
   const form = e.target as HTMLFormElement;
   const formData = new FormData(form);
-  const message = formData.get('message')
-  messagesController.sendMessage(block.getProps('selectedChat'), message as string);
+  const message = formData.get('message') as string
+
+  messagesController.sendMessage(block.getProps('selectedChat'), message);
   const chatWindow = document.querySelector('.conversation__messages-container')
   chatWindow?.scrollTo(0, chatWindow.scrollHeight)
 };
