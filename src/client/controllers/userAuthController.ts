@@ -58,9 +58,7 @@ class UserAuthController {
   }
 
   async logout() {
-
     try {
-
       await authApi.logout();
       Store.set('user', '');
       Router.go('/');
@@ -72,8 +70,12 @@ class UserAuthController {
   }
 
   async getUser() {
-    const user = await authApi.getUser();
-    Store.set('user', user);
+    try {
+      const user = await authApi.getUser();
+      Store.set('user', user);
+    } catch (e) {
+      console.error(e);
+    }
   }
 }
 
