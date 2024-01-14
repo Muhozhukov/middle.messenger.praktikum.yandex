@@ -32,16 +32,22 @@ class UsersController {
   }
 
   public async updateUserAvatar(form: HTMLFormElement) {
-    const formData = new FormData(form);
+    try {
+      const formData = new FormData(form);
 
-    await usersApi.updateAvatar(formData);
-
+      await usersApi.updateAvatar(formData);
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   public async getUserAvatar(id: string) {
-
-    const avatarPath = await resourcesApi.getAvatar(id);
-    store.set('user.avatar', avatarPath);
+    try {
+      const avatarPath = await resourcesApi.getAvatar(id);
+      store.set('user.avatar', avatarPath);
+    } catch (e) {
+      console.error(e)
+    }
   }
 
   public async changePassword(form: HTMLFormElement) {
@@ -65,8 +71,13 @@ class UsersController {
   }
 
   public async searchUsers(login: string): Promise<User[]> {
-    const res = await usersApi.searchUsers(login);
-    return res;
+    try {
+      const res = await usersApi.searchUsers(login);
+      return res;
+    } catch (e) {
+      console.error(e);
+      throw e;
+    }
   }
 }
 
