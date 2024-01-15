@@ -1,5 +1,6 @@
 import {render} from './render';
 import Block from './Block';
+import { Routes } from '..';
 
 function isEqual(lhs: string, rhs: string): boolean {
   return lhs === rhs;
@@ -80,7 +81,7 @@ class Router {
   private _onRoute(pathname: string) {
     const route = this.getRoute(pathname);
     if (!route) {
-      const notFoundRoute = this.getRoute('404');
+      const notFoundRoute = this.getRoute(Routes.NotFound);
       notFoundRoute?.render();
       return;
     }

@@ -1,3 +1,4 @@
+import { Routes } from "..";
 import authApi from "../api/auth-api";
 import Router from "../utils/Router";
 import Store from "../utils/Store";
@@ -22,7 +23,7 @@ class UserAuthController {
       await authApi.signin(data)
       await this.getUser();
 
-      Router.go('/chat');
+      Router.go(Routes.Chat);
 
     } catch (e) {
       console.error(e);
@@ -50,7 +51,7 @@ class UserAuthController {
       await authApi.signup(data)
       await this.getUser();
 
-      Router.go('/chat');
+      Router.go(Routes.Chat);
 
     } catch (e) {
       console.error(e);
