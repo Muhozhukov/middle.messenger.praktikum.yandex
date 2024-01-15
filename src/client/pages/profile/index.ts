@@ -8,6 +8,7 @@ import Router from '../../utils/Router';
 import store, { withStore } from '../../utils/Store';
 import usersController from '../../controllers/usersController';
 import isEqual from '../../utils/isEqual';
+import { Routes } from '../..';
 
 Handlebars.registerHelper('formWithoutBorder', (border: boolean): string => {
   return border ? 'form_without-border' : '';
@@ -62,7 +63,7 @@ class ProfilePageBase extends Block {
   constructor() {
     super({
       profileName: 'Название профиля',
-      backwardClick: () => Router.go('/chat'),
+      backwardClick: () => Router.go(Routes.Chat),
       onSubmitForm: (e: Event) => handleFormSubmit(e, this),
       avatar,
       buttonIcon,

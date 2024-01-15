@@ -18,6 +18,7 @@ import usersController from '../../controllers/usersController';
 import { User } from '../../api/auth-api';
 import { Message } from '../../controllers/messageController';
 import { ChatInfo } from '../../api/chat-api';
+import { Routes } from '../..';
 
 const icons = {
   searchIcon,
@@ -118,7 +119,7 @@ class ChatPageBase extends Block {
     super({
       icons,
       avatar,
-      toProfilePage: () => Router.go('/profile'),
+      toProfilePage: () => Router.go(Routes.Profile),
       onSubmitForm: (e: Event) => handleSendMessage(e, this),
       onOptionsClick: () => handleOptionsClick(this),
       addChatPopup: 'hiden',
@@ -150,7 +151,7 @@ class ChatPageBase extends Block {
     return chats.map(data => {
       const regexp = /^(?:[01]\d|2[0-3]):[0-5]\d$/
       // проверяет соответствие data.last_message.time типу чч:мм
-      if (!regexp.test(data.last_message.time)) {
+      if (data.last_message?.time && !regexp.test(data.last_message.time)) {
         data.last_message.time = formatTime(data.last_message.time)
       }
       return {

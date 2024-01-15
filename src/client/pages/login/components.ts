@@ -1,3 +1,4 @@
+import { Routes } from "../..";
 import Router from "../../utils/Router";
 
 export const inputs = [
@@ -26,7 +27,7 @@ export const buttons = [
     text: 'Нет аккаунта?',
     onClick: (e: MouseEvent) => {
       e.preventDefault();
-      Router.go('/signup')
+      Router.go(Routes.Signup)
     },
     class: 'button_text'
   }

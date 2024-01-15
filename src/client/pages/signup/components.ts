@@ -1,3 +1,4 @@
+import { Routes } from "../..";
 import Router from "../../utils/Router";
 
 export const inputs = [
@@ -57,7 +58,7 @@ export const buttons = [
     class: 'button_text',
     onClick: (e: MouseEvent) => {
       e.preventDefault();
-      Router.go('/');
+      Router.go(Routes.Login);
     }
   }
 ]

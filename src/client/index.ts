@@ -16,11 +16,11 @@ import userAuthController from './controllers/userAuthController';
 import {Popup, Modal} from './components/popup';
 import chatController from './controllers/chatController';
 
-const Routes = {
+export const Routes = {
   Login: '/',
-  Signup: '/signup',
-  Chat: '/chat',
-  Profile: '/profile',
+  Signup: '/sign-up',
+  Chat: '/messenger',
+  Profile: '/settings',
   NotFound: '404',
 };
 
