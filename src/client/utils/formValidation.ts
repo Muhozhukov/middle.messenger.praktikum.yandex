@@ -3,12 +3,15 @@ type ValidationRules = {
 }
 
 const validationRules: ValidationRules = {
+  title: /^.+$/,
   first_name: /^[A-Za-zА-ЯЁа-яё][A-Za-zА-ЯЁа-яё-]*$/,
   second_name: /^[A-Za-zА-ЯЁа-яё][A-Za-zА-ЯЁа-яё-]*$/,
   display_name: /^[A-Za-zА-ЯЁа-яё][A-Za-zА-ЯЁа-яё-]*$/,
   login: /^(?!-|\d)[A-Za-z0-9_-]{3,20}(?<!-)$/,
   email: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
   password:  /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,40}$/,
+  oldPassword:  /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,40}$/,
+  newPassword:  /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,40}$/,
   repeatPassword: /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,40}$/,
   phone:  /^\+?\d{10,15}$/,
   message: /^.+$/,
@@ -24,12 +27,15 @@ const validationErrors: ValidationErrors = {
   login: 'Логин должен быть от 3 до 20 символов, латиница, может содержать цифры, но не состоять из них, без пробелов, без спецсимволов (допустимы дефис и нижнее подчёркивание)',
   email: 'Неправильная форма записи email',
   password: 'Пароль должен быть от 8 до 40 символов, обязательно хотя бы одна заглавная буква и цифра',
+  oldPassword: 'Пароль должен быть от 8 до 40 символов, обязательно хотя бы одна заглавная буква и цифра',
+  newPassword: 'Пароль должен быть от 8 до 40 символов, обязательно хотя бы одна заглавная буква и цифра',
   repeatPassword: 'Пароль должен быть от 8 до 40 символов, обязательно хотя бы одна заглавная буква и цифра',
   phone: 'Номер телефона должен быть от 10 до 15 символов, состоять из цифр, может начинается с плюса',
   message: '',
 }
 export const checkInputValidation = (input: HTMLInputElement | HTMLTextAreaElement): boolean => {
   const errorSpan = document.getElementById(`${input.name}-error`) as HTMLElement;
+
   if (!validationRules[input.name].test(input.value)) {
     errorSpan.classList.add('input__error_visible');
     errorSpan.textContent = validationErrors[input.name];
