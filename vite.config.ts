@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
-import vitePluginHandlebarsPrecompile from './vite-plugin-handlebars-precompile';
+import vitePluginHandlebarsPrecompile from './vite-plugin-handlebars-precompile.ts';
 
 export default defineConfig({
   root: resolve(__dirname, 'src/client'),

@@ -1,6 +1,6 @@
-import {render} from './render';
-import Block from './Block';
-import { Routes } from '..';
+import {render} from './render.ts';
+import Block from './Block.ts';
+import { Routes } from '../index.ts';
 
 function isEqual(lhs: string, rhs: string): boolean {
   return lhs === rhs;

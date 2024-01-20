@@ -1,20 +1,20 @@
-import Button from './components/button';
-import { registerComponent } from './utils/registerComponent';
-import Input from './components/input';
-import ChatListItem from './components/chatListItem';
-import Message from './components/message';
-import Form from './components/form';
-import Label from './components/label';
-import InputError from './components/inputError';
-import { LoginPage } from './pages/login';
-import { ChatPage } from './pages/chat';
-import { SignupPage } from './pages/signup';
-import { ProfilePage } from './pages/profile';
-import { ErrorPage } from './pages/errorPage';
-import Router from './utils/Router';
-import userAuthController from './controllers/userAuthController';
-import {Popup, Modal} from './components/popup';
-import chatController from './controllers/chatController';
+import Button from './components/button/index.ts';
+import { registerComponent } from './utils/registerComponent.ts';
+import Input from './components/input/index.ts';
+import ChatListItem from './components/chatListItem/index.ts';
+import Message from './components/message/index.ts';
+import Form from './components/form/index.ts';
+import Label from './components/label/index.ts';
+import InputError from './components/inputError/index.ts';
+import { LoginPage } from './pages/login/index.ts';
+import { ChatPage } from './pages/chat/index.ts';
+import { SignupPage } from './pages/signup/index.ts';
+import { ProfilePage } from './pages/profile/index.ts';
+import { ErrorPage } from './pages/errorPage/index.ts';
+import Router from './utils/Router.ts';
+import userAuthController from './controllers/userAuthController.ts';
+import {Popup, Modal} from './components/popup/index.ts';
+import chatController from './controllers/chatController.ts';
 
 export const Routes = {
   Login: '/',

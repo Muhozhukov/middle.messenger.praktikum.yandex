@@ -1,4 +1,4 @@
-import Block from "../../utils/Block";
+import Block from "../../utils/Block.ts";
 import template from './message.hbs';
 
 interface MessageProps {

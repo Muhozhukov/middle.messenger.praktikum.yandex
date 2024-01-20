@@ -1,8 +1,8 @@
-import { Routes } from "..";
-import authApi from "../api/auth-api";
-import Router from "../utils/Router";
-import Store from "../utils/Store";
-import { checkFormValidation } from "../utils/formValidation";
+import { Routes } from "../index.ts";
+import authApi from "../api/auth-api.ts";
+import Router from "../utils/Router.ts";
+import Store from "../utils/Store.ts";
+import { checkFormValidation } from "../utils/formValidation.ts";
 
 class UserAuthController {
   public async login(form: HTMLFormElement) {

@@ -1,10 +1,10 @@
-import { User } from "../api/auth-api";
-import { ChatInfo } from "../api/chat-api";
-import Message from "../components/message";
-import Block from "./Block";
-import { EventBus } from "./EventBus";
-import { set } from "./helpers";
-import isEqual from "./isEqual";
+import { User } from "../api/auth-api.ts";
+import { ChatInfo } from "../api/chat-api.ts";
+import Message from "../components/message/index.ts";
+import Block from "./Block.ts";
+import { EventBus } from "./EventBus.ts";
+import { set } from "./helpers.ts";
+import isEqual from "./isEqual.ts";
 
 interface State {
   user: User;

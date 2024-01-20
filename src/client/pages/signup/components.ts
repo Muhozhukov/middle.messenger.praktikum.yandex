@@ -1,5 +1,5 @@
-import { Routes } from "../..";
-import Router from "../../utils/Router";
+import { Routes } from "../../index.ts";
+import Router from "../../utils/Router.ts";
 
 export const inputs = [
   {
