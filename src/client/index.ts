@@ -34,6 +34,7 @@ registerComponent('ChatListItem', ChatListItem);
 registerComponent('Popup', Popup);
 registerComponent('Modal', Modal);
 
+console.log(Router)
 window.addEventListener('DOMContentLoaded', async () => {
   Router
     .use(Routes.Login, LoginPage)

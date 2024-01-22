@@ -3,7 +3,7 @@ interface Options {
     [key: string]: string;
   },
   data?: any,
-  method: 'GET' | 'PUT' | 'POST' | 'DELETE',
+  method?: 'GET' | 'PUT' | 'POST' | 'DELETE',
   timeout?: number,
 }
 
@@ -71,8 +71,7 @@ class HTTPTransport {
   request<Response>(url: string, options: Options, timeout = 5000): Promise<Response> {
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
-      xhr.open(options.method, url);
-
+      xhr.open(options.method as string, url);
       if (options.headers) {
         for (const header in options.headers) {
           if (Object.prototype.hasOwnProperty.call(options.headers, header)) {
