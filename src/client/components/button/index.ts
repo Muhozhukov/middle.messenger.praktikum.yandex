@@ -1,7 +1,7 @@
-import Block from '../../utils/Block';
+import Block from '../../utils/Block.ts';
 import template from './button.hbs';
 
-interface ButtonProps {
+export interface ButtonProps {
   text: string;
   class: string;
   type?: 'submit' | 'reset' | 'button';

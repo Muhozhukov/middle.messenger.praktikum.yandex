@@ -1,7 +1,7 @@
 import template from './signup.hbs';
-import Block from '../../utils/Block';
-import { inputs, buttons } from './components';
-import userAuthController from '../../controllers/userAuthController';
+import Block from '../../utils/Block.ts';
+import { inputs, buttons } from './components.ts';
+import userAuthController from '../../controllers/userAuthController.ts';
 
 const handleFormSubmit = (e: Event) => {
   e.preventDefault();

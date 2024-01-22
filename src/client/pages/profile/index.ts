@@ -1,14 +1,14 @@
 import Handlebars from 'handlebars';
 import template from './profile.hbs';
-import Block, { Props } from '../../utils/Block';
+import Block, { Props } from '../../utils/Block.ts';
 import avatar from '../../../../static/circleIcon.svg';
 import buttonIcon from '../../../../static/sendMessageIcon.svg'
-import { inputs, getDefaultButtons, getInputs } from './components';
-import Router from '../../utils/Router';
-import store, { withStore } from '../../utils/Store';
-import usersController from '../../controllers/usersController';
-import isEqual from '../../utils/isEqual';
-import { Routes } from '../..';
+import { inputs, getDefaultButtons, getInputs } from './components.ts';
+import Router from '../../utils/Router.ts';
+import store, { withStore } from '../../utils/Store.ts';
+import usersController from '../../controllers/usersController.ts';
+import isEqual from '../../utils/isEqual.ts';
+import { Routes } from '../../index.ts';
 
 Handlebars.registerHelper('formWithoutBorder', (border: boolean): string => {
   return border ? 'form_without-border' : '';
