@@ -4,53 +4,107 @@
       <div class="chats-header__button">
         {{{Button text="Профиль >" class="button_text" onClick=toProfilePage}}}
       </div>
+      <div class="chats-header__button">
+        {{{Button text="Создать чат" class="button_text" onClick=onCreateChatClick}}}
+      </div>
       <div class="chats-header__search-container">
         <input class="chats-header__search-input" type="text" placeholder="Поиск">
-        <img class="chats-header__search-icon" src='{{searchIcon}}' alt="Поиск">
+        <img class="chats-header__search-icon" src='{{icons.searchIcon}}' alt="Поиск">
       </div>
     </div>
-    {{#each data}}
-    {{{ChatListItem
-      icon=this.icon
-      chatName=this.chatName
-      chatLastMessage=this.chatLastMessage
-      lastMessageDate=this.lastMessageDate
-      unreadedMessages=this.unreadedMessages
-    }}}
+    {{#each chats}}
+      {{{ChatListItem
+        avatar=this.avatar
+        chatName=this.title
+        chatLastMessage=this.last_message.content
+        lastMessageDate=this.last_message.time
+        unread_count=this.unread_count
+        onClick=this.onClick
+      }}}
     {{/each}}
   </section>
   <div class="conversation">
+    {{#if selectedChat }}
     <div class="conversation__header">
-    <div class="conversation__chat-name-container">
-      <img class="conversation__avatar" src={{avatar}} alt="аватар">
-      <p class="conversation__chat-name">{{chatName}}</p>
+      <div class="conversation__chat-name-container">
+        <img class="conversation__avatar" src={{avatar}} alt="аватар">
+        <p class="conversation__chat-name">{{chatName}}</p>
+      </div>
+      {{#Button class="conversation__settings-button" onClick=onOptionsClick}}
+        <img src={{icons.settingsIcon}} alt="настройки">
+      {{/Button}}
+      {{#Modal title="Свойства" style="_min popup_min-top-right" visibility=chatOptionsVisibility}}
+        <div class="modal-button-container">
+          {{{Button type="button" text="Добавить пользователя" class="button_text" onClick=openAddUserPopup}}}
+        </div>
+        <div class="modal-button-container">
+          {{{Button type="button" text="Удалить пользователя" class="button_text" onClick=openRemoveUserPopup}}}
+        </div>
+      {{/Modal}}
     </div>
-    {{#Button class="conversation__settings-button" onClick=onSettingsClick}}
-      <img src={{settingsIcon}} alt="настройки">
-    {{/Button}}
-    {{!-- <button class="conversation__settings-button">
-      <img src={{settingsIcon}} alt="настройки">
-    </button> --}}
-  </div>
     <div class="conversation__messages-container">
-      {{#each messages}}
-      {{{Message
-        text=this.text
-        time=this.time
-        isMine=(isMineMessage this.isMine)
-      }}}
-      {{/each}}
+        {{#each messages}}
+          {{{Message
+            text=this.content
+            time=this.time
+            isMine=(isMineMessage this.isMine)
+          }}}
+        {{/each}}
     </div>
     <div class="conversation-footer">
     <button class="conversation-footer__attach-button">
-      <img src="{{attachIcon}}" alt="Прикрепить файл">
+      <img src="{{icons.attachIcon}}" alt="Прикрепить файл">
     </button>
     {{#Form border="form_message" onSubmit=onSubmitForm}}
-    <textarea class="conversation-footer__input" name="message" type="textarea" placeholder="Сообщение"></textarea>
-    <button type="submit" class="conversation-footer__send-message-button">
-      <img class="conversation-footer__send-message-icon" src="{{sendMessageIcon}}" alt="Отправить сообщение">
-    </button>
+      <textarea class="conversation-footer__input" name="message" type="textarea" placeholder="Сообщение"></textarea>
+      <button type="submit" class="conversation-footer__send-message-button">
+        <img class="conversation-footer__send-message-icon" src="{{icons.sendMessageIcon}}" alt="Отправить сообщение">
+      </button>
     {{/Form}}
   </div>
+  {{else}}
+    <div style=" height: 100%; display: flex; align-items: center; justify-content: center">
+      Выбирете чат
+    </div>
+  {{/if}}
   </div>
+
+  {{#Popup visibility=addChatPopup onClick=handleClosePopup name="addChat"}}
+    {{#Modal title="Создание чата"}}
+      {{#Form border=(formWithoutBorder true) onSubmit=onChatCreate}}
+        <div style="position: relative; margin-bottom: 20px">
+          {{{Label label="Название чата" name="title"}}}
+          {{{Input name="title" type="text" }}}
+          {{{InputError text=this.errorText id="title-error" }}}
+        </div>
+        {{{Button type="submit" text="Создать" class="button_primary"}}}
+      {{/Form}}
+    {{/Modal}}
+  {{/Popup}}
+
+  {{#Popup visibility=addUserPopup onClick=handleClosePopup name="addUser"}}
+    {{#Modal title="Добавить пользователя"}}
+      {{#Form border=(formWithoutBorder true) onSubmit=onAddUser}}
+        <div style="position: relative; margin-bottom: 20px">
+          {{{Label label="Логин" name="login"}}}
+          {{{Input name="login" type="text" }}}
+          {{{InputError text=this.errorText id="login-error" }}}
+        </div>
+        {{{Button type="submit" text="Добавить" class="button_primary"}}}
+      {{/Form}}
+    {{/Modal}}
+  {{/Popup}}
+
+  {{#Popup visibility=deleteUserPopup onClick=handleClosePopup name="deleteUser"}}
+    {{#Modal title="Удалить пользователя"}}
+      {{#Form border=(formWithoutBorder true) onSubmit=onDeleteUser}}
+        <div style="position: relative; margin-bottom: 20px">
+          {{{Label label="Логин" name="login"}}}
+          {{{Input name="login" type="text" }}}
+          {{{InputError text=this.errorText id="login-error" }}}
+        </div>
+        {{{Button type="submit" text="Удалить" class="button_primary"}}}
+      {{/Form}}
+    {{/Modal}}
+  {{/Popup}}
 </div>

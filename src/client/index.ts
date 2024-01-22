@@ -1,4 +1,3 @@
-import { render } from './utils/render';
 import Button from './components/button';
 import { registerComponent } from './utils/registerComponent';
 import Input from './components/input';
@@ -7,6 +6,23 @@ import Message from './components/message';
 import Form from './components/form';
 import Label from './components/label';
 import InputError from './components/inputError';
+import { LoginPage } from './pages/login';
+import { ChatPage } from './pages/chat';
+import { SignupPage } from './pages/signup';
+import { ProfilePage } from './pages/profile';
+import { ErrorPage } from './pages/errorPage';
+import Router from './utils/Router';
+import userAuthController from './controllers/userAuthController';
+import {Popup, Modal} from './components/popup';
+import chatController from './controllers/chatController';
+
+export const Routes = {
+  Login: '/',
+  Signup: '/sign-up',
+  Chat: '/messenger',
+  Profile: '/settings',
+  NotFound: '404',
+};
 
 registerComponent('Button', Button);
 registerComponent('Message', Message);
@@ -15,7 +31,23 @@ registerComponent('Form', Form);
 registerComponent('Label', Label);
 registerComponent('InputError', InputError);
 registerComponent('ChatListItem', ChatListItem);
+registerComponent('Popup', Popup);
+registerComponent('Modal', Modal);
 
-window.addEventListener('DOMContentLoaded', () => {
-  render('login')
+window.addEventListener('DOMContentLoaded', async () => {
+  Router
+    .use(Routes.Login, LoginPage)
+    .use(Routes.Signup, SignupPage)
+    .use(Routes.Chat, ChatPage)
+    .use(Routes.Profile, ProfilePage)
+    .use(Routes.NotFound, ErrorPage);
+
+  try {
+    Router.start();
+    await userAuthController.getUser();
+    await chatController.fetchChats();
+  } catch (e) {
+    console.log(e);
+    Router.start();
+  }
 });

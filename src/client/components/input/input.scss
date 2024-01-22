@@ -13,6 +13,10 @@
       border: none;
     }
   }
+
+  &_file {
+    display: none;
+  }
 }
 
 .input-data {
@@ -42,6 +46,33 @@
     &:last-child {
       border: none;
     }
+
+    &-active {
+      color: $color-font-main;
+      border-bottom: none;
+      width: 70%;
+      padding: 0;
+      background-color: inherit;
+      border: none;
+      font-size: 13px;
+      line-height: 13px;
+      font-weight: 500;
+      text-align: end;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:last-child {
+        border: none;
+      }
+
+    }
+  }
+
+
+  &_file {
+    display: none;
   }
 
   &:focus {

@@ -1,17 +1,14 @@
+import { Routes } from '../..';
 import Block from '../../utils/Block';
-import { render } from '../../utils/render';
+import Router from '../../utils/Router';
 import template from './errorPage.hbs';
 
-// interface ErrorPageProps {
-//   errorCode: number | string;
-//   description: string
-// }
 export class ErrorPage extends Block {
   constructor() {
     super({
       errorCode: 404,
       description: 'Не туда попали',
-      onButtonClick: () => render('chat')
+      onButtonClick: () => Router.go(Routes.Chat)
     })
   }
   render() {

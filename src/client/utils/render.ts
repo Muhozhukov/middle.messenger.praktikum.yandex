@@ -1,27 +1,11 @@
-import { LoginPage } from '../pages/login';
-import { ChatPage } from '../pages/chat';
-import { SignupPage } from '../pages/signup';
-import { ProfilePage } from '../pages/profile';
-import { ErrorPage } from '../pages/errorPage';
+import Block from "./Block";
 
-const ROUTES = {
-  'chat': ChatPage,
-  'profile': ProfilePage,
-  'errorPage': ErrorPage,
-  'login': LoginPage,
-  'signup': SignupPage,
-}
-
-export function render(name: keyof typeof ROUTES) {
-  const root = document.querySelector('#app')!;
+export function render(query: string, block: Block) {
+  const root = document.querySelector(query)!;
 
   root.innerHTML = '';
 
-  const Page = ROUTES[name];
+  root.append(block.getContent()!);
 
-  const page = new Page();
-
-  root.append(page.getContent()!);
-
-  page.dispatchComponentDidMount();
+  return root;
 }
