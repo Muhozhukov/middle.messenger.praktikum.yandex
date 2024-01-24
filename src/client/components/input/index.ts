@@ -1,6 +1,6 @@
-import Block from "../../utils/Block";
-import { handleFocusInput, handleFocusoutInput } from "../../utils/handleFocusInput";
-import { checkInputValidation } from "../../utils/formValidation";
+import Block from "../../utils/Block.ts";
+import { handleFocusInput, handleFocusoutInput } from "../../utils/handleFocusInput.ts";
+import { checkInputValidation } from "../../utils/formValidation.ts";
 import inputTemplate from "./input.hbs";
 
 interface InputProps {

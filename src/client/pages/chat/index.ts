@@ -1,5 +1,5 @@
 import template from './chat.hbs';
-import Block, { Props } from '../../utils/Block';
+import Block, { Props } from '../../utils/Block.ts';
 import searchIcon from '../../../../static/searchIcon.svg';
 import Handlebars from 'handlebars';
 import settingsIcon from '../../../../static/threeDotsIcon.svg'
@@ -8,17 +8,17 @@ import attachIcon from '../../../../static/attachIcon.svg';
 import avatar from '../../../../static/circleIcon.svg';
 import plusIcon from '../../../../static/addIcon.svg';
 import removeIcon from '../../../../static/removeIcon.svg';
-import Router from '../../utils/Router';
-import store, { withStore } from '../../utils/Store';
-import chatController from '../../controllers/chatController';
-import isEqual from '../../utils/isEqual';
-import messagesController from '../../controllers/messageController';
-import { formatTime } from '../../utils/helpers';
-import usersController from '../../controllers/usersController';
-import { User } from '../../api/auth-api';
-import { Message } from '../../controllers/messageController';
-import { ChatInfo } from '../../api/chat-api';
-import { Routes } from '../..';
+import Router from '../../utils/Router.ts';
+import store, { withStore } from '../../utils/Store.ts';
+import chatController from '../../controllers/chatController.ts';
+import isEqual from '../../utils/isEqual.ts';
+import messagesController from '../../controllers/messageController.ts';
+import { formatTime } from '../../utils/helpers.ts';
+import usersController from '../../controllers/usersController.ts';
+import { User } from '../../api/auth-api.ts';
+import { Message } from '../../controllers/messageController.ts';
+import { ChatInfo } from '../../api/chat-api.ts';
+import { Routes } from '../../index.ts';
 
 const icons = {
   searchIcon,

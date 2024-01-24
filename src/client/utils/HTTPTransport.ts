@@ -3,7 +3,7 @@ interface Options {
     [key: string]: string;
   },
   data?: any,
-  method: 'GET' | 'PUT' | 'POST' | 'DELETE',
+  method?: 'GET' | 'PUT' | 'POST' | 'DELETE',
   timeout?: number,
 }
 
@@ -13,6 +13,8 @@ const METHODS: Record<string, 'GET' | 'PUT' | 'POST' | 'DELETE'> = {
   POST: 'POST',
   DELETE: 'DELETE',
 };
+
+type HTTPMethod = <R=unknown>(url: string, options?: Options) => Promise<R>
 
 type StringKeyObject = {
   [key: string]: string | StringKeyObject;
@@ -48,31 +50,30 @@ class HTTPTransport {
     this.endpoint = `${HTTPTransport.API_URL}${endpoint}`;
   }
 
-  get<Response>(url: string, options?: Options): Promise<Response> {
+  get: HTTPMethod = (url, options = {}) => {
 		let query = '';
 		if (options && options.data) {
 			query += `?${queryStringify(options.data)}`;
 		}
-    return this.request<Response>(this.endpoint + `${url}${query}`, { ...options, method: METHODS.GET });
+    return this.request(this.endpoint + `${url}${query}`, { ...options, method: METHODS.GET });
   }
 
-  put<Response>(path: string = '/', data: unknown): Promise<Response> {
-    return this.request<Response>(this.endpoint + path, { data, method: METHODS.PUT });
+  put: HTTPMethod = (path = '/', data) => {
+    return this.request(this.endpoint + path, { data, method: METHODS.PUT });
   }
 
-  post<Response>(path: string = '/', data: unknown): Promise<Response> {
-    return this.request<Response>(this.endpoint + path, { data, method: METHODS.POST });
+  post: HTTPMethod = (path = '/', data) => {
+    return this.request(this.endpoint + path, { data, method: METHODS.POST });
   }
 
-  delete<Response>(path: string = '/', data: unknown): Promise<Response> {
-    return this.request<Response>(this.endpoint + path, { data, method: METHODS.DELETE });
+  delete: HTTPMethod = (path = '/', data) => {
+    return this.request(this.endpoint + path, { data, method: METHODS.DELETE });
   }
 
   request<Response>(url: string, options: Options, timeout = 5000): Promise<Response> {
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
-      xhr.open(options.method, url);
-
+      xhr.open(options.method as string, url);
       if (options.headers) {
         for (const header in options.headers) {
           if (Object.prototype.hasOwnProperty.call(options.headers, header)) {

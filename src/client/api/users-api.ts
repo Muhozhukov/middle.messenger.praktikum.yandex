@@ -1,5 +1,5 @@
-import { BaseApi } from "./base-api";
-import { User } from "./auth-api";
+import { BaseApi } from "./base-api.ts";
+import { User } from "./auth-api.ts";
 
 export interface LoginData {
   login: string;

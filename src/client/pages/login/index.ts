@@ -1,8 +1,8 @@
-import Block from '../../utils/Block';
+import Block from '../../utils/Block.ts';
 import template from './template.hbs'
-import { inputs, buttons } from './components';
-import userAuthController from '../../controllers/userAuthController';
-import { withStore } from '../../utils/Store';
+import { inputs, buttons } from './components.ts';
+import userAuthController from '../../controllers/userAuthController.ts';
+import { withStore } from '../../utils/Store.ts';
 
 const handleFormSubmit = (e: Event) => {
   e.preventDefault();

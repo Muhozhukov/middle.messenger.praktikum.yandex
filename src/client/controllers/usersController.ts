@@ -1,8 +1,8 @@
-import resourcesApi from "../api/resources-api";
-import usersApi from "../api/users-api";
-import store from "../utils/Store";
-import { checkFormValidation } from "../utils/formValidation";
-import { User } from "../api/auth-api";
+import resourcesApi from "../api/resources-api.ts";
+import usersApi from "../api/users-api.ts";
+import store from "../utils/Store.ts";
+import { checkFormValidation } from "../utils/formValidation.ts";
+import { User } from "../api/auth-api.ts";
 
 class UsersController {
   public async updateUserInfo(form: HTMLFormElement) {

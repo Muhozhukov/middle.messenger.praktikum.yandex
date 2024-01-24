@@ -3,6 +3,7 @@ const getParentNode = (input: HTMLInputElement) => {
 }
 
 export function handleFocusInput (input: HTMLInputElement): void {
+  console.log(1111)
   let placeholder = getParentNode(input).querySelector('.input__placeholder') as HTMLElement
   if (placeholder === null) {
     placeholder = getParentNode(input).querySelector('.input__placeholder_profile') as HTMLElement

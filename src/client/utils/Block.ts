@@ -1,4 +1,4 @@
-import { EventBus } from './EventBus';
+import { EventBus } from './EventBus.ts';
 import { nanoid } from 'nanoid';
 
 export interface Props {
@@ -107,6 +107,7 @@ class Block {
   }
 
   private _componentDidUpdate(oldProps?: Props, newProps?: Props) {
+    console.log(oldProps, newProps)
     if (this.componentDidUpdate(oldProps, newProps)) {
       this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }

@@ -1,6 +1,6 @@
-import { Routes } from '../..';
-import Block from '../../utils/Block';
-import Router from '../../utils/Router';
+import { Routes } from '../../index.ts';
+import Block from '../../utils/Block.ts';
+import Router from '../../utils/Router.ts';
 import template from './errorPage.hbs';
 
 export class ErrorPage extends Block {

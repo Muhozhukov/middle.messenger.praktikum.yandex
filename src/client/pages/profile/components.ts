@@ -1,6 +1,6 @@
-import userAuthController from "../../controllers/userAuthController";
-import Block from "../../utils/Block";
-import store from "../../utils/Store";
+import userAuthController from "../../controllers/userAuthController.ts";
+import Block from "../../utils/Block.ts";
+import store from "../../utils/Store.ts";
 
 export const changeButton = {
   type: 'button',
